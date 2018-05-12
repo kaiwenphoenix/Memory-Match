@@ -1,0 +1,226 @@
+body {
+  text-align: center;
+  background: #fff;
+}
+
+span {
+  font-size: 3em;
+}
+.stopWatch {
+  width: 20%;
+  border: 10px solid;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+.minutes, .seconds, .milliseconds {
+  font-size: 3em;
+}
+.startClockBtn {
+  font-size: 2em;
+}
+.deck {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1rem;
+  background: white;
+}
+.card {
+  display: flex;
+  background-color: black;
+  width: 240px;
+  color: white;
+  height: 240px;
+  justify-content: center;
+  align-items: center;
+  font-size: 0px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 6px -6px black;
+}
+.disable {
+  opacity: .3;
+  pointer-events: none;
+}
+.turn {
+  font-size: 90px;
+background: #FC354C;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #0ABFBC, #FC354C);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #0ABFBC, #FC354C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  animation-name: turnCard;
+  animation-duration: 2s;
+}
+.disable {
+  opacity: .5;
+  pointer-events: none;
+}
+.disable-deck {
+  pointer-events: none;
+}
+@keyframes turnCard {
+  from {
+    transform: rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: .3;
+  }
+  25% {
+    transform: rotate3d(0, 1, 0, -30deg);
+    animation-timing-function: ease-in;
+    opacity: .5;
+  }
+  50% {
+    transform: rotate3d(0, 1, 0, 15deg);
+        animation-timing-function: ease-in;
+    opacity: .7;
+  }
+  75% {
+    transform: rotate3d(0, 1, 0, 0deg);
+        animation-timing-function: ease-in;
+     opacity: 1;
+  }
+}
+.match {
+  animation-name: bounce;
+}
+.mismatch {
+  animation-name: wobble;
+}
+@keyframes bounce{
+  0% {
+    transform:  translate(0px,0px)  ;
+  }
+  15% {
+    transform:  translate(0px,-25px)  ;
+  }
+  30% {
+    transform:  translate(0px,0px)  ;
+  }
+  45% {
+    transform:  translate(0px,-15px)  ;
+  }
+  60% {
+    transform:  translate(0px,0px)  ;
+  }
+  75% {
+    transform:  translate(0px,-5px)  ;
+  }
+  100% {
+    transform:  translate(0px,0px)  ;
+  }
+}
+@-moz-keyframes bounce{
+  0% {
+    -moz-transform:  translate(0px,0px)  ;
+  }
+  15% {
+    -moz-transform:  translate(0px,-25px)  ;
+  }
+  30% {
+    -moz-transform:  translate(0px,0px)  ;
+  }
+  45% {
+    -moz-transform:  translate(0px,-15px)  ;
+  }
+  60% {
+    -moz-transform:  translate(0px,0px)  ;
+  }
+  75% {
+    -moz-transform:  translate(0px,-5px)  ;
+  }
+  100% {
+    -moz-transform:  translate(0px,0px)  ;
+  }
+}
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform:  translate(0px,0px)  ;
+  }
+  15% {
+    -webkit-transform:  translate(0px,-25px)  ;
+  }
+  30% {
+    -webkit-transform:  translate(0px,0px)  ;
+  }
+  45% {
+    -webkit-transform:  translate(0px,-15px)  ;
+  }
+  60% {
+    -webkit-transform:  translate(0px,0px)  ;
+  }
+  75% {
+    -webkit-transform:  translate(0px,-5px)  ;
+  }
+  100% {
+    -webkit-transform:  translate(0px,0px)  ;
+  }
+}
+@-o-keyframes bounce {
+  0% {
+    -o-transform:  translate(0px,0px)  ;
+  }
+  15% {
+    -o-transform:  translate(0px,-25px)  ;
+  }
+  30% {
+    -o-transform:  translate(0px,0px)  ;
+  }
+  45% {
+    -o-transform:  translate(0px,-15px)  ;
+  }
+  60% {
+    -o-transform:  translate(0px,0px)  ;
+  }
+  75% {
+    -o-transform:  translate(0px,-5px)  ;
+  }
+  100% {
+    -o-transform:  translate(0px,0px)  ;
+  }
+}
+@-ms-keyframes bounce {
+  0% {
+    -ms-transform:  translate(0px,0px)  ;
+  }
+  15% {
+    -ms-transform:  translate(0px,-25px)  ;
+  }
+  30% {
+    -ms-transform:  translate(0px,0px)  ;
+  }
+  45% {
+    -ms-transform:  translate(0px,-15px)  ;
+  }
+  60% {
+    -ms-transform:  translate(0px,0px)  ;
+  }
+  75% {
+    -ms-transform:  translate(0px,-5px)  ;
+  }
+  100% {
+    -ms-transform:  translate(0px,0px)  ;
+  }
+}
+@keyframes wobble{
+  0% {
+    transform:  translate(0px,0px)  rotate(0deg) ;
+  }
+  15% {
+    transform:  translate(-25px,0px)  rotate(-5deg) ;
+  }
+  30% {
+    transform:  translate(20px,0px)  rotate(3deg) ;
+  }
+  45% {
+    transform:  translate(-15px,0px)  rotate(-3deg) ;
+  }
+  60% {
+    transform:  translate(10px,0px)  rotate(2deg) ;
+  }
+  75% {
+    transform:  translate(-5px,0px)  rotate(-1deg) ;
+  }
+  100% {
+    transform:  translate(0px,0px)  rotate(0deg) ;
+  }
+}
