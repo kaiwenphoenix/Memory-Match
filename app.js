@@ -3,12 +3,18 @@
 let start = document.querySelector('.startClockBtn');
 let seconds = document.querySelector('.seconds');
 let minutes = document.querySelector('.minutes');
-let secs = 00, mins = 00;
+let secs = 00,
+  mins = 00;
 let matches = 0;
+let cards = document.querySelectorAll('.card');
+let moves = document.querySelector('.moves');
+let turns = 0;
+let turnedCards = [];
 //Clock Listener
-start.addEventListener('click', begin);
+
 
 //Begin Game
+
 function begin() {
   setInterval(function() {
     secs++;
@@ -17,43 +23,43 @@ function begin() {
     } else {
       seconds.innerHTML = secs;
     }
-
     if (secs > 59) {
       secs = 0;
       seconds.innerHTML = "0" + secs;
       mins++;
       minutes.innerHTML = mins;
     }
-  },1000)
+  }, 1000)
 }
 //Flip Card
-let cards = document.querySelectorAll('.card');
+
 cards.forEach(function(card) {
   card.addEventListener('click', flipCard);
 });
 
-let moves = document.querySelector('.moves');
-let turns = "";
-let turnedCards = [];
+
 
 //Matched
 
 function flipCard(e) {
- this.classList.toggle('turn');
+  this.classList.toggle('turn');
   turnedCards.push(this);
   console.log(turnedCards);
-  if(turnedCards.length == 2) {
-     cards.forEach(function(card) {
-     card.classList.toggle('disable-deck');
+  if (turnedCards.length == 2) {
+    cards.forEach(function(card) {
+      card.classList.toggle('disable-deck');
     })
     setTimeout(checkMatch, 1500);
   }
   turns++;
+  if (turns == 1) {
+    begin();
+  }
   moves.innerHTML = turns;
 }
 
 function checkMatch() {
-  if(turnedCards[0].innerHTML === turnedCards[1].innerHTML) {
+  if (turnedCards[0].innerHTML === turnedCards[1].innerHTML) {
     turnedCards.forEach(function(card) {
       card.classList.add('match');
     })
@@ -65,7 +71,7 @@ function checkMatch() {
     setTimeout(function() {
       turnedCards[0].classList.toggle('disable');
       turnedCards[1].classList.toggle('disable');
-  }, 2000);
+    }, 2000);
   } else {
     turnedCards.forEach(function(card) {
       card.classList.add('mismatch');
@@ -75,11 +81,11 @@ function checkMatch() {
       turnedCards[1].classList.toggle('turn');
       turnedCards[0].classList.remove('mismatch');
       turnedCards[1].classList.remove('mismatch');
-  }, 2000);
+    }, 2000);
   }
   setTimeout(function() {
     turnedCards = [];
-     cards.forEach(function(card) {
+    cards.forEach(function(card) {
       card.classList.remove('disable-deck');
     })
   }, 2100);
