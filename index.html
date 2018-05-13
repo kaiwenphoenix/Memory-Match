@@ -1,77 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <title>Document</title>
 </head>
+
 <body>
+  <h1 id="title">Memory Match { Developer Edition }</h1>
   <p class="stopWatch"><span class="minutes">0</span><span>:</span><span class="seconds">00</span></p>
   <section class="score-panel">
-        	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        	</ul>
-        </section>
-<button id= "newGame">
+    <ul class="stars">
+      <li><i class="fa fa-star"></i></li>
+      <li><i class="fa fa-star"></i></li>
+      <li><i class="fa fa-star"></i></li>
+    </ul>
+  </section>
+  <button id="newGame">
   Start New Game
 </button>
-<h2 class="moves">Moves <span class="moves"></span></h2>
-<!-- Card Design -->
-<div class="deck">
-  <div class="card angular">
-    <i class="fab fa-angular"></i>
+  <h2> Moves<br> <span class="moves">0</span></h2>
+  <!--MODAL-->
+  <div class="modal">
+    <div class="closeModal">
+      <a href="#" class="closeModal">&times</a>
+    </div>
+    <div class="congrats">
+      <h1 class="congrats">Congratulations!! You've Won!!</h1>
+    </div>
+    <div class="score">
+      <h2 class="finalScore">Your Score: <span></span></h2>
+    </div>
+    <div class="time">
+      <h2 class="yourTime">Your Time: <span></span></h2>
+    </div>
   </div>
-  <div class="card gulp">
-    <i class="fab fa-gulp"></i>
+  <!-- Card Design -->
+  <div class="deck">
+    <div class="card angular">
+      <i class="fab fa-angular"></i>
+    </div>
+    <div class="card gulp">
+      <i class="fab fa-gulp"></i>
+    </div>
+    <div class="card sass">
+      <i class="fab fa-sass"></i>
+    </div>
+    <div class="card html5">
+      <i class="fab fa-html5"></i>
+    </div>
+    <div class="card git">
+      <i class="fab fa-git"></i>
+    </div>
+    <div class="card wordpress">
+      <i class="fab fa-wordpress"></i>
+    </div>
+    <div class="card js">
+      <i class="fab fa-js"></i>
+    </div>
+    <div class="card react">
+      <i class="fab fa-react"></i>
+    </div>
+    <div class="card angular">
+      <i class="fab fa-angular"></i>
+    </div>
+    <div class="card gulp">
+      <i class="fab fa-gulp"></i>
+    </div>
+    <div class="card sass">
+      <i class="fab fa-sass"></i>
+    </div>
+    <div class="card html5">
+      <i class="fab fa-html5"></i>
+    </div>
+    <div class="card git">
+      <i class="fab fa-git"></i>
+    </div>
+    <div class="card wordpress">
+      <i class="fab fa-wordpress"></i>
+    </div>
+    <div class="card js">
+      <i class="fab fa-js"></i>
+    </div>
+    <div class="card react">
+      <i class="fab fa-react"></i>
+    </div>
   </div>
-  <div class="card sass">
-    <i class="fab fa-sass"></i>
-  </div>
-  <div class="card html5">
-    <i class="fab fa-html5"></i>
-  </div>
-  <div class="card git">
-    <i class="fab fa-git"></i>
-  </div>
-  <div class="card wordpress">
-    <i class="fab fa-wordpress"></i>
-  </div>
-  <div class="card js">
-    <i class="fab fa-js"></i>
-  </div>
-  <div class="card react">
-    <i class="fab fa-react"></i>
-  </div>
-  <div class="card angular">
-    <i class="fab fa-angular"></i>
-  </div>
-  <div class="card gulp">
-    <i class="fab fa-gulp"></i>
-  </div>
-  <div class="card sass">
-    <i class="fab fa-sass"></i>
-  </div>
-  <div class="card html5">
-    <i class="fab fa-html5"></i>
-  </div>
-  <div class="card git">
-    <i class="fab fa-git"></i>
-  </div>
-  <div class="card wordpress">
-    <i class="fab fa-wordpress"></i>
-  </div>
-  <div class="card js">
-    <i class="fab fa-js"></i>
-  </div>
-  <div class="card react">
-    <i class="fab fa-react"></i>
-  </div>
-</div>
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
+
 </html>
