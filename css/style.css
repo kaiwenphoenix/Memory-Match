@@ -1,10 +1,22 @@
 body {
   text-align: center;
-  background: #fff;
+  background-image: url("../intersection.png");
+  background-repeat: repeat;
 }
 
 span {
   font-size: 3em;
+}
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
 }
 .stopWatch {
   width: 20%;
@@ -15,8 +27,9 @@ span {
 .minutes, .seconds, .milliseconds {
   font-size: 3em;
 }
-.startClockBtn {
+#newGame {
   font-size: 2em;
+  border: 3px solid green;
 }
 .deck {
   width: 60%;
@@ -39,10 +52,7 @@ span {
   margin-bottom: 30px;
   box-shadow: 0 8px 6px -6px black;
 }
-.disable {
-  opacity: .3;
-  pointer-events: none;
-}
+
 .turn {
   font-size: 90px;
 background: #FC354C;  /* fallback for old browsers */
