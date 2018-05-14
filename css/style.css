@@ -152,7 +152,7 @@ background: linear-gradient(to bottom, #0ABFBC, #FC354C); /* W3C, IE 10+/ Edge, 
   position: fixed;
   justify-content: center;
   width: 60%;
-  height: 50%;
+  height: 70%;
   background: #5d5c61;
   margin-left: 20%;
   margin-right: 20%;
@@ -178,9 +178,23 @@ background: linear-gradient(to bottom, #0ABFBC, #FC354C); /* W3C, IE 10+/ Edge, 
   font-size: 2em;
   margin-bottom: 20px;
 }
+.finalScore ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+}
+.finalScore li {
+  display: inline-block;
+  color: yellow;
+  font-size: 1.4em;
+}
 .score, .time {
-  height: 20%;
+  height: 25%;
   font-size: 1.3em;
+}
+.finalTime h2 {
+  margin: 10px 0px;
+  color: yellow;
 }
 @keyframes bounce{
   0% {

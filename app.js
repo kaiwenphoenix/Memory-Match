@@ -14,6 +14,10 @@ let canvas = document.querySelector('.deck');
 let shuffledDeck = [];
 let modal = document.querySelector('.modal');
 let closeModal = document.querySelector('.closeModal');
+let stars = "";
+let score = document.querySelector('.finalScore span');
+let times = document.querySelector('.finalTime');
+let yourTime = document.querySelector('.stopWatch').textContent;
 // Game Listeners
 newGame.addEventListener('click', startGame);
 cards.forEach(function(card) {
@@ -110,9 +114,14 @@ function checkMatch() {
   if (turnedCards[0].innerHTML === turnedCards[1].innerHTML) {
     turnedCards.forEach(function(card) {
       card.classList.add('match');
-      matches++;
     })
+    matches++;
+    console.log(matches);
 
+    //Check to see if game is complete
+    if (matches == 8) {
+      congrats();
+    }
 
     //Disables matched cards
     setTimeout(function() {
@@ -142,14 +151,31 @@ function checkMatch() {
   }, 2100);
 }
 
-//Check to see if game is complete
-if (matches == 8) {
-  congrats();
-}
+
 function congrats() {
+  clearInterval(clock);
   modal.style.display = "block";
+  // Stars display
+  if ((turns >= 0 ) && (turns <= 14)) {
+    stars = 3;
+  } else if ((turns >= 15) && (turns <= 20)) {
+    stars = 2;
+  } else {
+    stars = 1;
+  }
+  let ul = document.createElement('ul');
+  for (let i = 0; i < stars; i++) {
+    let li = document.createElement('li');
+    li.innerHTML= "<i class='fa fa-star'></i>";
+    ul.appendChild(li);
+  }
+  score.appendChild(ul);
+  let finalTime = document.createElement('h2');
+  let finish = document.querySelector('.stopWatch').textContent;
+  finalTime.innerHTML = finish;
+  times.appendChild(finalTime);
+
 }
 function exit() {
   modal.style.display = "none";
 }
-// Stars display
