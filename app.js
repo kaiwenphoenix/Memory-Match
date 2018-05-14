@@ -1,5 +1,4 @@
 //Game Variables
-let main = document.querySelector('.main');
 let title = document.querySelector('#title');
 let seconds = document.querySelector('.seconds');
 let minutes = document.querySelector('.minutes');
@@ -21,14 +20,19 @@ let score = document.querySelector('.finalScore span');
 let scorePanel = document.querySelector('.score-panel');
 let times = document.querySelector('.finalTime');
 let timer = document.querySelector('.time');
+let stopWatch = document.querySelector('.stopWatch');
 let yourTime = document.querySelector('.stopWatch').textContent;
-let blurred = [newGame, timer, title];
+let blurred = [newGame, title, stopWatch, canvas];
+var clock;
+var playAgain = document.querySelector('.play-again a');
+
 // Game Listeners
 newGame.addEventListener('click', startGame);
 cards.forEach(function(card) {
   card.addEventListener('click', flipCard);
 });
 closeModal.addEventListener('click', exit);
+playAgain.addEventListener('click', exit);
 
 // Begin Game
 document.body.onload = startGame();
@@ -40,18 +44,24 @@ function startGame() {
   seconds.innerHTML = "0" + secs;
   minutes.innerHTML = mins;
   moves.innerHTML = 0;
+
+  // CLEARS TIMER
   clearInterval(clock);
 
+  // SHUFFLES CARDS
   cardCollection = shuffle(cardCollection);
   for (var i = 0; i < cards.length; i++) {
     cardCollection.forEach(function(card) {
-      canvas.appendChild(card);
 
+  // APPENDS CARDS TO DECK
+      canvas.appendChild(card);
     });
+  // REMOVES CLASSES FROM CARDS
     cardCollection[i].classList.remove("turn", "match", "disable")
   }
 }
-// Shuffle Cards
+
+// SHUFFLE CARD FUNCTION
 function shuffle(array) {
   console.log("shuffle");
   var currentIndex = array.length,
@@ -68,10 +78,10 @@ function shuffle(array) {
   return array;
 };
 
-//Init Game
-var clock;
+//INITIALIZE Game
 
 function begin() {
+  // START TIMER
   clock = setInterval(function() {
     secs++;
     if (secs < 10) {
@@ -91,13 +101,12 @@ function begin() {
 //Flip Cards
 
 function flipCard(e) {
-  //Begin Clock
 
   //Turn Card
   this.classList.toggle('turn');
   //Push turned card to tunedCard array
   turnedCards.push(this);
-  //If there are 2 turned cards add turn to moves
+  //If there are 2 turned cards add turn to moves AND BEGIN TIMER
   if (turnedCards.length == 2) {
     turns++;
     if ((turns == 1) && (secs === 0) && (mins === 0)) {
@@ -110,6 +119,7 @@ function flipCard(e) {
     } else {
       stars = 1;
     }
+    // SET SCORE BASED ON NUMBER OF MOVES
     scorePanel.innerHTML = "";
     let ul = document.createElement('ul');
     for (let i = 0; i < stars; i++) {
@@ -171,10 +181,11 @@ function checkMatch() {
   }, 2100);
 }
 
-
+// DISPLAY MODAL ON GAME COMPLETION
 function congrats() {
   clearInterval(clock);
   modal.style.display = "block";
+  modal.classList.toggle('win-animation');
   blurred.forEach(function(blur) {
     blur.classList.toggle('blur');
   })
@@ -193,14 +204,18 @@ function congrats() {
     ul.appendChild(li);
   }
   score.appendChild(ul);
+  // DISPLAY ELAPSED TIME
   let finalTime = document.createElement('h2');
   let finish = document.querySelector('.stopWatch').textContent;
   finalTime.innerHTML = finish;
   times.appendChild(finalTime);
-
 }
+
+// CLOSE MODAL
 function exit() {
   modal.style.display = "none";
+  score.innerHTML = "";
+  times.innerHTML = "";
   blurred.forEach(function(blur) {
     blur.classList.toggle('blur');
   })

@@ -13,9 +13,8 @@ body {
   color: white;
   font-size: 3em;
 }
-.stopWatch span {
-  font-size: 2em;
-}
+
+/* Scores */
 .score-panel {
   width: 10%;
   display: inline-block;
@@ -28,10 +27,13 @@ body {
   font-size: 2em;
 }
 
-.score-panel .stars li {
+.score-panel ul li {
     list-style: none;
     display: inline-block;
+    font-size: 2.4em;
 }
+
+/* stopWatch/Timer */
 .stopWatch {
   display: flex;
   position: fixed;
@@ -47,9 +49,14 @@ body {
   color: white;
   background-color: #FC354C;
 }
-.minutes, .seconds, .milliseconds {
+.stopWatch span {
+  font-size: 2em;
+}
+.minutes, .seconds {
   font-size: 3em;
 }
+
+/* Start New Game */
 #newGame {
   display: flex;
   position: fixed;
@@ -73,6 +80,8 @@ body {
 #newGame:active {
   transform: translateY(4px);
 }
+
+/* TURNS COUNTER */
 .moves {
   font-size: 3em;
 }
@@ -82,6 +91,8 @@ h2 {
 .moves {
   font-size: 1em;
 }
+
+/* CARD DECK */
 .deck {
   width: 50%;
   margin: 0 auto;
@@ -119,6 +130,81 @@ background: linear-gradient(to bottom, #0ABFBC, #FC354C); /* W3C, IE 10+/ Edge, 
 .disable-deck {
   pointer-events: none;
 }
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  top: 200px;
+  width: 60%;
+  height: 75%;
+  background: #5d5c61;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+  opacity: .9;
+  z-index: 1000;
+}
+.win-animation {
+  animation-name: winner;
+}
+.blur{
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.closeModal a{
+  position: relative;
+  display: block;
+  font-size: 3em;
+  height: 20% !important;
+  text-align: right;
+  display: block !important;
+  text-decoration: none;
+  color: white;
+  top: 30px;
+  right: 50px;
+}
+.congrats {
+  height: 20%;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+.finalScore ul, .score-panel ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+}
+.finalScore li, .score-panel li {
+  display: inline-block;
+  color: yellow;
+  font-size: 1.4em;
+}
+.score, .time {
+  height: 23%;
+  font-size: 1.3em;
+}
+.finalTime h2 {
+  margin: 10px 0px;
+  color: yellow;
+}
+.play-again{
+  font-size: 1em;
+  text-align: center;
+}
+.play-again p {
+  text-align: center;
+}
+.play-again a {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+}
+.play-again a:hover {
+  color: yellow;
+}
+/* ANIMATIONS */
 @keyframes turnCard {
   from {
     transform: rotate3d(0, 1, 0, 90deg);
@@ -147,61 +233,7 @@ background: linear-gradient(to bottom, #0ABFBC, #FC354C); /* W3C, IE 10+/ Edge, 
 .mismatch {
   animation-name: wobble;
 }
-.modal {
-  display: none;
-  position: fixed;
-  justify-content: center;
-  top: 200px;
-  width: 60%;
-  height: 70%;
-  background: #5d5c61;
-  margin-left: 20%;
-  margin-right: 20%;
-  text-align: center;
-  opacity: .9;
-  animation-name: winner;
-  z-index: 1000;
-}
-.blur{
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-}
 
-.modal a{
-  position: relative;
-  display: block;
-  font-size: 3em;
-  height: 20% !important;
-  text-align: right;
-  display: block !important;
-  text-decoration: none;
-  color: white;
-  top: 30px;
-  right: 50px;
-}
-.congrats {
-  height: 20%;
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-.finalScore ul, .score-panel ul {
-  list-style-type: none;
-  text-align: center;
-  padding: 0;
-}
-.finalScore li, .score-panel li {
-  display: inline-block;
-  color: yellow;
-  font-size: 1.4em;
-}
-.score, .time {
-  height: 25%;
-  font-size: 1.3em;
-}
-.finalTime h2 {
-  margin: 10px 0px;
-  color: yellow;
-}
 @keyframes bounce{
   0% {
     transform:  translate(0px,0px)  ;
