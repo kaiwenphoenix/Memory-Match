@@ -151,6 +151,7 @@ background: linear-gradient(to bottom, #0ABFBC, #FC354C); /* W3C, IE 10+/ Edge, 
   display: none;
   position: fixed;
   justify-content: center;
+  top: 200px;
   width: 60%;
   height: 70%;
   background: #5d5c61;
@@ -161,6 +162,11 @@ background: linear-gradient(to bottom, #0ABFBC, #FC354C); /* W3C, IE 10+/ Edge, 
   animation-name: winner;
   z-index: 1000;
 }
+.blur{
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
 .modal a{
   position: relative;
   display: block;

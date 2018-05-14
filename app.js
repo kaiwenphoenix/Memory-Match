@@ -1,4 +1,6 @@
 //Game Variables
+let main = document.querySelector('.main');
+let title = document.querySelector('#title');
 let seconds = document.querySelector('.seconds');
 let minutes = document.querySelector('.minutes');
 let secs = 00,
@@ -18,7 +20,9 @@ let stars = "";
 let score = document.querySelector('.finalScore span');
 let scorePanel = document.querySelector('.score-panel');
 let times = document.querySelector('.finalTime');
+let timer = document.querySelector('.time');
 let yourTime = document.querySelector('.stopWatch').textContent;
+let blurred = [newGame, timer, title];
 // Game Listeners
 newGame.addEventListener('click', startGame);
 cards.forEach(function(card) {
@@ -171,6 +175,9 @@ function checkMatch() {
 function congrats() {
   clearInterval(clock);
   modal.style.display = "block";
+  blurred.forEach(function(blur) {
+    blur.classList.toggle('blur');
+  })
   // Stars display
   if ((turns >= 0 ) && (turns <= 14)) {
     stars = 3;
@@ -194,4 +201,7 @@ function congrats() {
 }
 function exit() {
   modal.style.display = "none";
+  blurred.forEach(function(blur) {
+    blur.classList.toggle('blur');
+  })
 }
