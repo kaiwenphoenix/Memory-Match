@@ -178,12 +178,12 @@ background: linear-gradient(to bottom, #0ABFBC, #FC354C); /* W3C, IE 10+/ Edge, 
   font-size: 2em;
   margin-bottom: 20px;
 }
-.finalScore ul {
+.finalScore ul, .score-panel ul {
   list-style-type: none;
   text-align: center;
   padding: 0;
 }
-.finalScore li {
+.finalScore li, .score-panel li {
   display: inline-block;
   color: yellow;
   font-size: 1.4em;

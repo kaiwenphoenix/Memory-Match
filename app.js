@@ -16,6 +16,7 @@ let modal = document.querySelector('.modal');
 let closeModal = document.querySelector('.closeModal');
 let stars = "";
 let score = document.querySelector('.finalScore span');
+let scorePanel = document.querySelector('.score-panel');
 let times = document.querySelector('.finalTime');
 let yourTime = document.querySelector('.stopWatch').textContent;
 // Game Listeners
@@ -98,6 +99,21 @@ function flipCard(e) {
     if ((turns == 1) && (secs === 0) && (mins === 0)) {
       begin();
     }
+    if ((turns >= 0 ) && (turns <= 14)) {
+      stars = 3;
+    } else if ((turns >= 15) && (turns <= 20)) {
+      stars = 2;
+    } else {
+      stars = 1;
+    }
+    scorePanel.innerHTML = "";
+    let ul = document.createElement('ul');
+    for (let i = 0; i < stars; i++) {
+      let li = document.createElement('li');
+      li.innerHTML= "<i class='fa fa-star'></i>";
+      ul.appendChild(li);
+    }
+    scorePanel.appendChild(ul);
   //Disable deck to prevent additional clicks
     cards.forEach(function(card) {
       card.classList.toggle('disable-deck');
