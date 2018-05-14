@@ -2,6 +2,7 @@
 # Memory Match {dev-edition}
 ---
 ![Udacity logo| 20%](https://pbs.twimg.com/profile_images/877421534486315008/8wplWcXI_400x400.jpg)
+
 **Memory Match** is a that utilizes memorization and recall. Given a deck of cards, The player will attempt to match cards with the same icon to create a match. The user will win the game once all of the cards have been matched. 
 
 Memory Match is the second project assigned by **Udacity's Front End Nano Degree** program. 
